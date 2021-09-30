@@ -1,0 +1,9 @@
+---
+- hosts: "{{ host }}"
+  tasks:
+    - name: "Remove user account"
+      user:
+        user: "{{ item }}"
+        state: absent
+        remove: yes
+      with_items: "{{ users }}"

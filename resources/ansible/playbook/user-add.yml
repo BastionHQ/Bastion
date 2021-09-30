@@ -1,0 +1,13 @@
+---
+- hosts: "{{ host }}"
+  tasks:
+    - name: "Create user account"
+      user:
+        name: "{{ item }}"
+#        groups: "bitrix"
+      with_items: "{{ users }}"
+    - name: "Add authorized keys"
+      authorized_key:
+        user: "{{ item }}"
+        key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDnWHuxVdYGUunVOlZvwGilf5zEcKO8Bienr//QO0WgbNIGDXYUZJpyzR3coAUGPpmf2nRhGJz8VMZsNhXxvZSuFJ1zYuXesPKTBnIVvaRGAHoPgu/KzRoqbb4IkdfCK6KJc9YEEi3vofc1jr0nr4zP4nyWhEpiDjpZ9LsyzKb+xfcw9uIMqIKTGYC+UeQm8aJAlFYHWxf99+dErQAy1hB+xceXsTJvSmqtTLZx8VDocTWjvtsshb4mS0GW08MpNZBckKnJB4VqU1Hzyn23DzR4w8y+t6dVl/70rKxbjwzg1wBg25RsUcRcTov5CwcFaPVOPASQkqPAzlByw6pLngEb Sergey@Sergeys-MacBook-Air.local"
+      with_items: "{{ users }}"
