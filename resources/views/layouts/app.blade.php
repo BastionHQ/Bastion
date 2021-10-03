@@ -15,6 +15,7 @@
 <div class="Header">
     <div class="Header-item">
         <a href="#" class="Header-link f4 d-flex flex-items-center">
+            <img class="mr-2" height="24" src="{{ asset('images/logo.svg') }}" alt="{{ config('app.name') }}"/>
             <span>Бастион</span>
         </a>
     </div>

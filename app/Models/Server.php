@@ -25,4 +25,9 @@ class Server extends Model
         return $this->hasMany(Status::class)
             ->latest();
     }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'server_users');
+    }
 }

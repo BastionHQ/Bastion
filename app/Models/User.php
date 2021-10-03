@@ -23,6 +23,11 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public function getFullNameAttrbute()
+    {
+        return $this->last_name . ' ' . $this->name;
+    }
+
     public function keys()
     {
         return $this->hasMany(Key::class);
