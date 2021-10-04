@@ -15,12 +15,12 @@ class Client
 
     public function __construct(array $hosts, $actingAs = 'root')
     {
-        $this->inventoryFile = base_path('resources/ansible/hosts');
+        $this->inventoryFile = config('bastion.inventory-file');
 
         $ansible = new Ansible(
-            base_path('resources/ansible'),
-            '/usr/local/bin/ansible-playbook',
-            '/usr/local/bin/ansible-galaxy'
+            config('bastion.ansible-base'),
+            config('bastion.playbook-command'),
+            config('bastion.galaxy-command')
         );
 
         $this->playbook = $ansible
